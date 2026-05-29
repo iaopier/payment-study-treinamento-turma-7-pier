@@ -1,0 +1,19 @@
+
+{
+  "compilerOptions": {
+    "target": "ES2022",                          /* Versão do JavaScript final */
+    "module": "NodeNext",                        /* Sistema de módulos moderno */
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "rootDir": "./src",                          /* Onde vai ficar o código TS */
+    "outDir": "./dist",                          /* Onde vai ficar o código JS compilado */
+    "esModuleInterop": true,                     /* Melhora a compatibilidade de imports */
+    "forceConsistentCasingInFileNames": true,    /* Evita problemas de maiúsculas/minúsculas */
+    "strict": true,                              /* Ativa verificação rígida de tipos (crucial para finanças) */
+    "skipLibCheck": true,                        /* Ignora checagem de tipos dentro da node_modules (ganha velocidade) */
+    "allowImportingTsExtensions": true,
+    "noEmit": true                          
+  },
+  "include": ["src/**/*"]                        /* Monitora apenas a pasta src */
+}
+
