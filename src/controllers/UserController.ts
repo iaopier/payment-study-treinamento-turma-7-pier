@@ -15,7 +15,7 @@ export class UserController {
 
             const createUserService = new CreateUserService(userRepository, walletRepository);
 
-            const user = createUserService.execute(body)
+            const user = await createUserService.execute(body)
 
             return res.code(201).send(user)
 

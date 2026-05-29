@@ -1,3 +1,4 @@
+import 'dotenv/config'; // Carrega as variáveis de ambiente do .env
 import { PrismaClient } from '../prisma/generated/client.ts'; // Importa o Prisma Client
 import { PrismaPg } from '@prisma/adapter-pg';
 import pg from 'pg';

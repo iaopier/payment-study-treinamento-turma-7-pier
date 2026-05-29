@@ -1,9 +1,10 @@
 import { hash } from 'bcrypt';
 import { UserRepository } from '../repository/UserRepository.ts'
 import { WalletRepository } from '../repository/WalletRepository.ts'
-import { User, Prisma } from '@prisma/client'
+import { User, Prisma } from '../prisma/generated/client.ts'
 
 interface CreateUserRequest extends Prisma.UserCreateInput {}
+type SafeUser = Omit<User, 'password'>
 
 export class CreateUserService {
     constructor(
@@ -11,7 +12,7 @@ export class CreateUserService {
         private walletRepository: WalletRepository
     ) {}
 
-    async execute({fullName, document, userType, email, password}:CreateUserRequest): Promise<User> {
+    async execute({fullName, document, email, password, userType}:CreateUserRequest): Promise<SafeUser> {
 
         const documentExists = await this.userRepository.findByDocument(document)
         if (documentExists) {
@@ -35,7 +36,7 @@ export class CreateUserService {
 
         await this.walletRepository.create(user.id)
 
-        const { [password]: _, ...cleanUser } = user
+        const { password: _, ...cleanUser } = user
 
         return cleanUser
 
