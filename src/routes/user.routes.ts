@@ -20,7 +20,19 @@ export async function userRoutes(app: FastifyInstance) {
                 })
             }
         },
-        userController.handle
+        userController.create
     )
 
+    app.withTypeProvider<ZodTypeProvider>().get(
+        '/:type/:value',
+        {
+            schema: {
+                params: z.object({
+                    type: z.enum(["id", "document", "email"]),
+                    value: z.string().min(1),
+                }),
+            },
+        },
+        userController.getByLookup
+    )
 }
