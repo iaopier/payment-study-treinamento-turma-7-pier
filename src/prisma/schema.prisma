@@ -1,0 +1,55 @@
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../prisma/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserType {
+  COMMON
+  MERCHANT
+}
+
+model User {
+  id          String    @id @default(uuid())
+  fullName    String    @map("full_name")
+  document    String    @unique
+  email       String    @unique
+  password    String
+  userType    UserType  @map("user_type")
+  createdAt   DateTime  @default(now()) @map("create_at")
+
+  wallet     Wallet?  // 1:1 with wallet
+
+  @@map("users")  // db table name
+}
+
+model Wallet {
+  id        String    @id @default(uuid())
+  balance   Int       @default(0)  // stored in cents to avoid round errors 10,50 -> 1050
+  userId    String    @unique @map("user_id")
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  sentTransactions     Transactions[]   @relation("SenderWallet")
+  receivedTransactions Transactions[]   @relation("ReceiverWallet")
+
+  @@map("wallets")
+}
+
+model Transactions {
+  id                String  @id @default(uuid())
+  senderWalletId    String  @map("sender_wallet_id")
+  receiverWalletId  String  @map("receiver_wallet_id")
+  amount            Int     
+  created_at        DateTime  @default(now()) @map("created")
+
+  senderWallet    Wallet  @relation("SenderWallet", fields: [senderWalletId], references: [id])
+  receiverWallet  Wallet  @relation("ReceiverWallet", fields: [receiverWalletId], references: [id])
+
+  @@map("transactions")
+}

@@ -1,0 +1,43 @@
+{
+  "name": "payment-study",
+  "version": "1.0.0",
+  "description": "repository destined to study how a payment api works and the problem it solves",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "db:migrate": "npx prisma migrate dev",
+    "db:studio": "npx prisma studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caiquemx/payment-study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/caiquemx/payment-study/issues"
+  },
+  "homepage": "https://github.com/caiquemx/payment-study#readme",
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^25.9.1",
+    "@types/pg": "^8.20.0",
+    "prisma": "^7.8.0",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.8.5",
+    "fastify-type-provider-zod": "^6.1.0",
+    "pg": "^8.21.0",
+    "zod": "^4.4.3"
+  }
+}
