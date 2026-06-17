@@ -1,1 +1,1 @@
-import { UserRepository } from '../repositories/UserRepository'; interface CreateUserDTO { name: string; email: string; } export class CreateUserService { constructor(private userRepository: UserRepository) {} async execute({ name, email }: CreateUserDTO) { const user = await this.userRepository.create({ name, email }); return user; } }
+import { UserRepository } from '../repositories/UserRepository'; export class CreateUserService { constructor(private userRepository: UserRepository) {} async execute(data: any) { return await this.userRepository.create(data); } }
