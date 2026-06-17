@@ -1,0 +1,1 @@
+import { UserRepository } from '../repositories/UserRepository'; interface UpdateUserDTO { name?: string; email?: string; } export class UpdateUserService { constructor(private userRepository: UserRepository) {} async execute(id: string, data: UpdateUserDTO): Promise<void> { await this.userRepository.update(id, data); } }
