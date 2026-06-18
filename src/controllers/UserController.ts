@@ -1,1 +1,3 @@
-import { Request, Response } from 'express'; import { DeleteUserService } from '../services/DeleteUserService'; import { UpdateUserService } from '../services/UpdateUserService'; export class UserController { constructor(private deleteUserService: DeleteUserService, private updateUserService: UpdateUserService) {} async update(req: Request, res: Response): Promise<Response> { const { id } = req.params; const data = req.body; const user = await this.updateUserService.execute(id, data); return res.json(user); } async delete(req: Request, res: Response): Promise<Response> { const { id } = req.params; await this.deleteUserService.execute(id); return res.status(204).send(); } }
+fix: corrige src/controllers/UserController.ts (QA human review #1)
+
+Refatorado para utilizar DeleteUserService e UpdateUserService, removendo a dependência direta do UserRepository. Adicionado construtor para injeção de dependência.
