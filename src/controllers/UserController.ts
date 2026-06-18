@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Refatoração do controller para utilizar DeleteUserService e UpdateUserService via injeção de dependência.
+import { Request, Response } from 'express'; import { DeleteUserService } from '../services/DeleteUserService'; import { UpdateUserService } from '../services/UpdateUserService'; export class UserController { constructor(private deleteUserService: DeleteUserService, private updateUserService: UpdateUserService) {} async delete(req: Request, res: Response): Promise<Response> { const { id } = req.params; await this.deleteUserService.execute(id); return res.status(204).send(); } async update(req: Request, res: Response): Promise<Response> { const { id } = req.params; const data = req.body; const user = await this.updateUserService.execute(id, data); return res.json(user); } }
