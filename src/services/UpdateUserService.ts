@@ -1,1 +1,3 @@
-import { UserRepository } from '../repositories/UserRepository'; export class UpdateUserService { constructor(private userRepository: UserRepository) {} async execute(id: string, data: any): Promise<any> { const user = await this.userRepository.findById(id); if (!user) { throw new Error('User not found'); } return await this.userRepository.update(id, data); } }
+fix: corrige src/services/UpdateUserService.ts (QA human review #1)
+
+Criação do serviço para encapsular a lógica de atualização de usuários.
