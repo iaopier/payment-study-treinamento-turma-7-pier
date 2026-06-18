@@ -1,3 +1,1 @@
-fix: corrige src/services/UpdateUserService.ts (QA human review #1)
-
-Criado serviço para atualização de usuário com injeção de repositório e testes unitários.
+import { UserRepository } from '../repositories/UserRepository'; interface UpdateUserDTO { name?: string; email?: string; } export class UpdateUserService { constructor(private userRepository: UserRepository) {} async execute(id: string, data: UpdateUserDTO) { const user = await this.userRepository.findById(id); if (!user) { throw new Error('User not found'); } return await this.userRepository.update(id, data); } }
