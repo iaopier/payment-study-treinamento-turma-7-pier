@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Refatorado para utilizar DeleteUserService e UpdateUserService, removendo a dependência direta do UserRepository. Adicionado construtor para injeção de dependência.
+import { Request, Response } from 'express'; import { CreateUserService } from '../services/CreateUserService'; import { GetUserService } from '../services/GetUserService'; export class UserController { constructor(private createUserService: CreateUserService, private getUserService: GetUserService) {} async create(req: Request, res: Response): Promise<Response> { const { name, email } = req.body; const user = await this.createUserService.execute({ name, email }); return res.status(201).json(user); } async get(req: Request, res: Response): Promise<Response> { const { id } = req.params; const user = await this.getUserService.execute(id); if (!user) return res.status(404).json({ message: 'User not found' }); return res.json(user); } }
