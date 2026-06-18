@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Removida a importação direta do UserRepository e refatorado para utilizar DeleteUserService e UpdateUserService, garantindo que o controller não conheça a camada de persistência.
+import { Request, Response } from 'express'; import { DeleteUserService } from '../services/DeleteUserService'; import { UpdateUserService } from '../services/UpdateUserService'; export class UserController { constructor(private deleteUserService: DeleteUserService, private updateUserService: UpdateUserService) {} async update(req: Request, res: Response): Promise<Response> { const { id } = req.params; const data = req.body; const user = await this.updateUserService.execute(id, data); return res.json(user); } async delete(req: Request, res: Response): Promise<Response> { const { id } = req.params; await this.deleteUserService.execute(id); return res.status(204).send(); } }
