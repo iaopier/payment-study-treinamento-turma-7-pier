@@ -1,1 +1,3 @@
-import { IUserRepository } from '../repositories/IUserRepository'; interface IRequest { name: string; email: string; } export class CreateUserService { constructor(private userRepository: IUserRepository) {} async execute({ name, email }: IRequest) { const userExists = await this.userRepository.findByEmail(email); if (userExists) throw new Error('User already exists'); return this.userRepository.create({ name, email }); } }
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Encapsulamento da lógica de criação de usuário utilizando o UserRepository. Adicionados testes unitários.
