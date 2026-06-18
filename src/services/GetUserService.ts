@@ -1,1 +1,3 @@
-import { IUserRepository } from '../repositories/IUserRepository'; export class GetUserService { constructor(private userRepository: IUserRepository) {} async execute(id: string) { return this.userRepository.findById(id); } }
+fix: corrige src/services/GetUserService.ts (QA human review #1)
+
+Encapsulamento da lógica de busca de usuário utilizando o UserRepository. Adicionados testes unitários.
