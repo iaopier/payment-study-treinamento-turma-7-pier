@@ -1,3 +1,1 @@
-fix: corrige src/services/DeleteUserService.ts (QA human review #1)
-
-Criado serviço para deleção de usuário com injeção de repositório e testes unitários.
+import { UserRepository } from '../repositories/UserRepository'; export class DeleteUserService { constructor(private userRepository: UserRepository) {} async execute(id: string): Promise<void> { const userExists = await this.userRepository.findById(id); if (!userExists) { throw new Error('User not found'); } await this.userRepository.delete(id); } }
