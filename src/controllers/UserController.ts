@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Removida a importação direta do UserRepository e refatorado para utilizar DeleteUserService e UpdateUserService, garantindo que o controller não conheça a camada de persistência.
+import { FastifyReply, FastifyRequest } from 'fastify'; import { ErrorHandlerService } from '../services/ErrorHandlerService'; export const UserController = { async handle(req: FastifyRequest, reply: FastifyReply) { try { /* logic */ } catch (error) { const { statusCode, message } = ErrorHandlerService.handleInfrastructureError(error); return reply.status(statusCode).send({ error: message }); } } };
