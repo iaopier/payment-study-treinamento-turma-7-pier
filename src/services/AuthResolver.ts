@@ -1,1 +1,3 @@
-import bcrypt from 'bcrypt'; import { prisma } from '../lib/prisma'; export interface AuthResolver { verifyCredentials(email: string, password: string): Promise<boolean>; } export class AuthResolverImpl implements AuthResolver { async verifyCredentials(email: string, password: string): Promise<boolean> { const user = await prisma.user.findUnique({ where: { email } }); if (!user) return false; return await bcrypt.compare(password, user.password); } }
+fix: corrige src/services/AuthResolver.ts (QA human review #1)
+
+Implementação da interface AuthResolver com lógica de validação usando bcrypt.
