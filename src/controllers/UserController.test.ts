@@ -1,3 +1,3 @@
 fix: corrige src/controllers/UserController.test.ts (QA human review #1)
 
-Criação do arquivo de testes para o UserController conforme exigido pelo plano técnico.
+Adicionado arquivo de testes para UserController, DeleteUserService e UpdateUserService conforme exigido pela QA.
