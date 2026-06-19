@@ -1,1 +1,3 @@
-import { UserRepository } from '../repositories/UserRepository'; export class GetUserService { constructor(private userRepository: UserRepository) {} async execute(id: string) { const user = await this.userRepository.findById(id); if (!user) throw new Error('User not found'); return user; } }
+fix: corrige src/services/GetUserService.ts (QA human review #1)
+
+Refatorado para receber o UserRepository via injeção de dependência.
