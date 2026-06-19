@@ -1,3 +1,1 @@
-fix: corrige src/services/DeleteUserService.ts (QA human review #1)
-
-Implementação do serviço de deleção com injeção de dependência do repositório e criação do arquivo de teste correspondente.
+import { UserRepository } from '../repositories/UserRepository'; export class DeleteUserService { constructor(private userRepository: UserRepository) {} async execute(id: string): Promise<void> { await this.userRepository.delete(id); } }
