@@ -1,10 +1,1 @@
-import { FastifyInstance } from 'fastify'
-import { serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod'
-import { userRoutes } from './user.routes.ts'
-
-
-export function appRoutes(app: FastifyInstance) {
-    app.setSerializerCompiler(serializerCompiler);
-    app.setValidatorCompiler(validatorCompiler);
-    app.register(userRoutes, { prefix: '/users' });
-}
+import { FastifyInstance } from 'fastify'; import { authRoutes } from './auth.routes'; export async function registerRoutes(fastify: FastifyInstance) { await fastify.register(authRoutes, { prefix: '/auth' }); }
