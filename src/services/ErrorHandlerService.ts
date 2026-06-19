@@ -1,0 +1,1 @@
+export class ErrorHandlerService { public static handleInfrastructureError(error: unknown): { statusCode: number; message: string } { if (error instanceof Error && error.name === 'ConnectionError') { return { statusCode: 503, message: 'Infrastructure connection failure' }; } return { statusCode: 500, message: 'Internal server error' }; } }
