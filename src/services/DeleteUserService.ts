@@ -1,1 +1,1 @@
-import { UserRepository } from '../repositories/UserRepository'; export class DeleteUserService { constructor(private userRepository: UserRepository) {} async execute(id: string): Promise<void> { const user = await this.userRepository.findById(id); if (!user) { throw new Error('User not found'); } await this.userRepository.delete(id); } }
+import { UserRepository } from '../repositories/UserRepository'; export class DeleteUserService { constructor(private userRepository: UserRepository) {} async execute(id: string): Promise<void> { await this.userRepository.delete(id); } }
