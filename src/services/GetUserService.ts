@@ -1,3 +1,1 @@
-fix: corrige src/services/GetUserService.ts (QA human review #1)
-
-Encapsulamento da lógica de busca de usuário utilizando o UserRepository. Adicionados testes unitários.
+import { UserRepository } from '../repositories/UserRepository'; export class GetUserService { constructor(private userRepository: UserRepository) {} async execute(id: string) { const user = await this.userRepository.findById(id); if (!user) { throw new Error('User not found'); } return user; } }
