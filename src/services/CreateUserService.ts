@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Refatorado para receber o UserRepository via injeção de dependência e tipagem estrita do parâmetro de entrada.
+import { UserRepository } from '../repositories/UserRepository'; export class CreateUserService { constructor(private userRepository: UserRepository) {} async execute(data: any) { return await this.userRepository.create(data); } }
