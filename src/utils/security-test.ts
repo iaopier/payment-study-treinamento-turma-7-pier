@@ -1,0 +1,1 @@
+import { ErrorHandlerService } from '../services/ErrorHandlerService'; export const handleInfrastructureError = (error: unknown) => { return ErrorHandlerService.handleInfrastructureError(error); };
