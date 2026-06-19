@@ -1,0 +1,1 @@
+export const normalizeUnicode = (input: string): string => { if (typeof input !== 'string') return ''; return input.normalize('NFC'); }; export const isUnicodeSupported = (input: string): boolean => { const regex = /[\u0080-\uFFFF]/; return regex.test(input); }; export const countUnicodeCharacters = (input: string): number => { return [...input].length; };
