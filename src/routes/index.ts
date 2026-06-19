@@ -1,10 +1,3 @@
-import { FastifyInstance } from 'fastify'
-import { serializerCompiler, validatorCompiler } from 'fastify-type-provider-zod'
-import { userRoutes } from './user.routes.ts'
+fix: corrige src/routes/index.ts (QA human review #1)
 
-
-export function appRoutes(app: FastifyInstance) {
-    app.setSerializerCompiler(serializerCompiler);
-    app.setValidatorCompiler(validatorCompiler);
-    app.register(userRoutes, { prefix: '/users' });
-}
+Registro das rotas de autenticação no roteador principal.
