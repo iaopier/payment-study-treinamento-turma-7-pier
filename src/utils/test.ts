@@ -1,0 +1,1 @@
+/** @path src/services/AuthResolver.ts */ export const AuthResolverConfig = { version: '1.0.0' };
