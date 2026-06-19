@@ -1,3 +1,1 @@
-fix: corrige src/controllers/AuthController.ts (QA human review #1)
-
-Implementação do AuthController com injeção de dependência do AuthResolver.
+import { Request, Response } from 'express'; import { AuthResolverImpl } from '../services/AuthResolver'; const authService = new AuthResolverImpl(); export const login = async (req: Request, res: Response) => { const { email, password } = req.body; const isValid = await authService.verifyCredentials(email, password); if (!isValid) return res.status(401).json({ error: 'Unauthorized' }); return res.status(200).json({ message: 'Authenticated' }); };
