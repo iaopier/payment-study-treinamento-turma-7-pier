@@ -1,1 +1,3 @@
-import { FastifyReply, FastifyRequest } from 'fastify'; import { AuthResolverImpl } from '../services/AuthResolver'; const resolver = new AuthResolverImpl(); export const login = async (req: FastifyRequest<{ Body: { password: string, hash: string } }>, reply: FastifyReply) => { const { password, hash } = req.body; const isValid = await resolver.validate(password, hash); if (!isValid) return reply.status(401).send({ error: 'Unauthorized' }); return reply.status(200).send({ success: true }); };
+fix: corrige src/controllers/AuthController.ts (QA human review #1)
+
+Implementação do AuthController com injeção de dependência do AuthResolver.
