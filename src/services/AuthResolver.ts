@@ -1,1 +1,3 @@
-import bcrypt from 'bcrypt'; export interface AuthResolver { validate(password: string, hash: string): Promise<boolean>; } export class AuthResolverImpl implements AuthResolver { async validate(password: string, hash: string): Promise<boolean> { return await bcrypt.compare(password, hash); } }
+fix: corrige src/services/AuthResolver.ts (QA human review #1)
+
+Implementação da interface e serviço AuthResolver com validação bcrypt.
