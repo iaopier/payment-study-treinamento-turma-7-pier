@@ -1,1 +1,1 @@
-import { UserRepository } from '../repositories/UserRepository'; export class GetUserService { constructor(private userRepository: UserRepository) {} async execute(id: string) { return this.userRepository.findById(id); } }
+import { UserRepository } from '../repositories/UserRepository'; export class GetUserService { private userRepository: UserRepository; constructor() { this.userRepository = new UserRepository(); } async execute(id: string) { return this.userRepository.findById(id); } }
