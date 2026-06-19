@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Encapsulamento da lógica de criação de usuário utilizando o UserRepository. Adicionados testes unitários.
+import { UserRepository } from '../repositories/UserRepository'; interface CreateUserDTO { name: string; email: string; } export class CreateUserService { constructor(private userRepository: UserRepository) {} async execute({ name, email }: CreateUserDTO) { const userExists = await this.userRepository.findByEmail(email); if (userExists) { throw new Error('User already exists'); } return this.userRepository.create({ name, email }); } }
