@@ -1,0 +1,1 @@
+import bcrypt from 'bcrypt'; export interface AuthResolver { validate(password: string, hash: string): Promise<boolean>; } export class AuthResolverImpl implements AuthResolver { async validate(password: string, hash: string): Promise<boolean> { return await bcrypt.compare(password, hash); } }
