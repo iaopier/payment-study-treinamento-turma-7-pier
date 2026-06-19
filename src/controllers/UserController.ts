@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Refatorado para remover dependências diretas de repositórios, delegando a lógica para os serviços. Adicionados testes unitários para o controller.
+import { Request, Response } from 'express'; import { CreateUserService } from '../services/CreateUserService'; import { GetUserService } from '../services/GetUserService'; export class UserController { constructor(private createUserService: CreateUserService, private getUserService: GetUserService) {} async create(req: Request, res: Response): Promise<Response> { const user = await this.createUserService.execute(req.body); return res.status(201).json(user); } async get(req: Request, res: Response): Promise<Response> { const user = await this.getUserService.execute(req.params.id); return res.json(user); } }
