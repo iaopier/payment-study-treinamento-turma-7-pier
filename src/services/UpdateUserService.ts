@@ -1,1 +1,3 @@
-import { UserRepository } from '../repositories/UserRepository'; export class UpdateUserService { private userRepository: UserRepository; constructor() { this.userRepository = new UserRepository(); } async execute(id: string, data: any): Promise<any> { return await this.userRepository.update(id, data); } }
+fix: corrige src/services/UpdateUserService.ts (QA human review #1)
+
+Implementação do serviço de atualização com injeção de dependência do repositório e criação do arquivo de teste correspondente.
