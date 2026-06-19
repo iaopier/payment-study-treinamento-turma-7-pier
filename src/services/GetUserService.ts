@@ -1,3 +1,1 @@
-fix: corrige src/services/GetUserService.ts (QA human review #1)
-
-Refatorado para receber o UserRepository via injeção de dependência.
+import { UserRepository } from '../repositories/UserRepository'; export class GetUserService { constructor(private userRepository: UserRepository) {} async execute(id: string) { return await this.userRepository.findById(id); } }
