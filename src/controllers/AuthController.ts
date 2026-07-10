@@ -1,3 +1,3 @@
-fix: corrige src/controllers/AuthController.ts (QA human review #1)
+fix: corrige src/controllers/AuthController.ts (QA human review #2)
 
-Removido uso de 'as any', adicionada interface ILoginDTO para tipagem do corpo da requisição.
+Controller de autenticação com DTO tipado e sem uso de any.
