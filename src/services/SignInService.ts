@@ -1,1 +1,3 @@
-import { compare } from 'bcrypt'; import { prisma } from '../lib/prisma'; import jwt from 'jsonwebtoken'; import { z } from 'zod'; export const signInSchema = z.object({ email: z.string().email(), password: z.string() }); export class SignInService { async execute(data: z.infer<typeof signInSchema>) { const { email, password } = signInSchema.parse(data); const user = await prisma.user.findUnique({ where: { email } }); if (!user) throw new Error('Invalid credentials'); const isMatch = await compare(password, user.password); if (!isMatch) throw new Error('Invalid credentials'); const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET || 'secret', { expiresIn: '1h' }); return { token }; } }
+fix: corrige src/services/SignInService.ts (QA human review #1)
+
+Implementação do serviço de login com verificação de hash e validação Zod.
