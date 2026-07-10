@@ -1,3 +1,1 @@
-fix: corrige src/controllers/AuthController.ts (QA human review #1)
-
-Implementação do AuthController com injeção de dependência do AuthResolver.
+import { FastifyReply, FastifyRequest } from 'fastify'; import { RegisterUserService } from '../services/RegisterUserService'; import { SignInService } from '../services/SignInService'; export class AuthController { async register(req: FastifyRequest, reply: FastifyReply) { const service = new RegisterUserService(); const user = await service.execute(req.body as any); return reply.status(201).send(user); } async login(req: FastifyRequest, reply: FastifyReply) { const service = new SignInService(); const token = await service.execute(req.body as any); return reply.send(token); } }
