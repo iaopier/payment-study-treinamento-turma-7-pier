@@ -1,3 +1,3 @@
-fix: corrige src/middlewares/ensureAuthenticated.ts (QA human review #1)
+fix: corrige src/middlewares/ensureAuthenticated.ts (QA human review #2)
 
-Implementação do middleware de proteção JWT conforme solicitado no plano.
+Implementação do middleware com interface augmentation para FastifyRequest.
