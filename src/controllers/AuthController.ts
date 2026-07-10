@@ -1,3 +1,1 @@
-fix: corrige src/controllers/AuthController.ts (QA human review #1)
-
-Controller para gerenciar requisições de autenticação com tipagem explícita.
+import { FastifyReply, FastifyRequest } from 'fastify'; import { AuthenticateUserService } from '../services/AuthenticateUserService'; export class AuthController { async handle(request: FastifyRequest, reply: FastifyReply) { const { email, password } = request.body as any; const service = new AuthenticateUserService(); try { const result = await service.execute({ email, password }); return reply.send(result); } catch (err) { return reply.status(401).send({ message: 'Invalid credentials' }); } } }
