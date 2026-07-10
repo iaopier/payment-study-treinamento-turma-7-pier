@@ -1,1 +1,3 @@
-import { hash } from 'bcrypt'; import { prisma } from '../lib/prisma'; import { z } from 'zod'; export const registerSchema = z.object({ email: z.string().email(), password: z.string().min(6) }); export class RegisterUserService { async execute(data: z.infer<typeof registerSchema>) { const { email, password } = registerSchema.parse(data); const passwordHash = await hash(password, 8); const user = await prisma.user.create({ data: { email, password: passwordHash } }); return user; } }
+fix: corrige src/services/RegisterUserService.ts (QA human review #1)
+
+Implementação do serviço de registro com hash de senha usando bcrypt e validação Zod.
