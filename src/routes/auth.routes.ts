@@ -1,1 +1,3 @@
-import { FastifyInstance } from 'fastify'; import { AuthController } from '../controllers/AuthController'; export async function authRoutes(app: FastifyInstance) { const controller = new AuthController(); app.post('/login', controller.handle); }
+fix: corrige src/routes/auth.routes.ts (QA human review #1)
+
+Definição da rota de login.
