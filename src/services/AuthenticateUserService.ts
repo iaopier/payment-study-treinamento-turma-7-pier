@@ -1,3 +1,3 @@
-fix: corrige src/services/AuthenticateUserService.ts (QA human review #1)
+fix: corrige src/services/AuthenticateUserService.ts (QA human review #2)
 
-Adicionada interface IAuthenticateRequest para tipagem explícita dos parâmetros do método execute.
+Implementação do serviço de autenticação com tipagem explícita via interface.
