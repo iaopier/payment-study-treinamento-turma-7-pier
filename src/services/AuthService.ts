@@ -1,3 +1,3 @@
-fix: corrige src/services/AuthService.ts (QA human review #1)
+fix: corrige src/services/AuthService.ts (QA human review #2)
 
-Implementação completa de AuthService com bcrypt e JWT, utilizando interfaces tipadas.
+Substituído 'any' por interface AuthCredentials e tipagem estrita em todos os métodos.
