@@ -1,1 +1,3 @@
-import { FastifyInstance } from 'fastify'; import { AuthController } from '../controllers/AuthController'; import { authMiddleware } from '../middleware/auth.middleware'; export async function authRoutes(fastify: FastifyInstance) { const controller = new AuthController(); fastify.post('/login', controller.login); fastify.get('/me', { preHandler: [authMiddleware] }, controller.me); }
+fix: corrige src/routes/auth.routes.ts (QA human review #1)
+
+Definição das rotas de autenticação.
