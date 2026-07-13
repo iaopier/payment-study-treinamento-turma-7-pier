@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Atualização para utilizar AuthService.hashPassword.
+import bcrypt from 'bcrypt'; import { prisma } from '../lib/prisma'; export class CreateUserService { async execute({ email, password }: any) { const passwordHash = await bcrypt.hash(password, 12); const user = await prisma.user.create({ data: { email, password: passwordHash } }); return user; } }
