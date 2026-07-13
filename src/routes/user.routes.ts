@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
-
-Registro das rotas de autenticação no Fastify.
+import { FastifyInstance } from 'fastify'; import { UserController } from '../controllers/UserController'; import { authMiddleware } from '../utils/auth-middleware'; export async function userRoutes(fastify: FastifyInstance) { fastify.post('/register', UserController.register); fastify.post('/login', UserController.login); fastify.get('/me', { preHandler: authMiddleware }, UserController.getCurrentUser); }
