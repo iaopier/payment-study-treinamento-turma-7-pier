@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
-
-Adição de rota protegida usando authMiddleware.
+import { FastifyInstance } from 'fastify';import { authMiddleware } from '../middleware/auth.middleware';export async function userRoutes(fastify: FastifyInstance) {fastify.get('/profile', { preHandler: [authMiddleware] }, async (req, reply) => {return { user: (req as any).user };});}
