@@ -1,3 +1,1 @@
-fix: corrige src/services/AuthService.ts (QA human review #1)
-
-Implementação completa do serviço de autenticação com JWT e bcrypt.
+import bcrypt from 'bcrypt'; import jwt from 'jsonwebtoken'; import { prisma } from '../lib/prisma'; const JWT_SECRET = process.env.JWT_SECRET || 'secret'; export class AuthService { async registerUser(data: any) { const hashedPassword = await bcrypt.hash(data.password, 12); return await prisma.user.create({ data: { email: data.email, password: hashedPassword } }); } async loginUser(email: string, password: string) { const user = await prisma.user.findUnique({ where: { email } }); if (!user || !(await bcrypt.compare(password, user.password))) throw new Error('Invalid credentials'); const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' }); return { token }; } }
