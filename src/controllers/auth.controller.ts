@@ -1,1 +1,3 @@
-import { FastifyReply, FastifyRequest } from 'fastify'; import { AuthService } from '../services/AuthService'; const authService = new AuthService(); export const handleRegister = async (req: FastifyRequest, reply: FastifyReply) => { try { const user = await authService.registerUser(req.body as any); return reply.status(201).send(user); } catch (e) { return reply.status(400).send({ error: 'Registration failed' }); } }; export const handleLogin = async (req: FastifyRequest, reply: FastifyReply) => { try { const { email, password } = req.body as any; const result = await authService.loginUser(email, password); return reply.status(200).send(result); } catch (e) { return reply.status(401).send({ error: 'Unauthorized' }); } };
+fix: corrige src/controllers/auth.controller.ts (QA human review #1)
+
+Implementação dos métodos de registro e login com tratamento de erros e tipagem.
