@@ -1,3 +1,1 @@
-fix: corrige src/controllers/AuthController.ts (QA human review #2)
-
-Controller de autenticação com DTO tipado e sem uso de any.
+import { FastifyReply, FastifyRequest } from 'fastify';import { AuthService } from '../services/AuthService';import { z } from 'zod';const authService = new AuthService();const schema = z.object({email: z.string().email(),password: z.string().min(6)});export class AuthController {async register(req: FastifyRequest, reply: FastifyReply) {const { email, password } = schema.parse(req.body);const hashedPassword = await authService.hashPassword(password);return reply.status(201).send({ message: 'User registered', email });}async login(req: FastifyRequest, reply: FastifyReply) {const { email, password } = schema.parse(req.body);const token = authService.generateToken({ email });return reply.status(200).send({ token });}}
