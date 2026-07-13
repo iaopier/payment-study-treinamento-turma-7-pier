@@ -1,3 +1,1 @@
-fix: corrige src/services/AuthService.ts (QA human review #1)
-
-Implementação completa de AuthService com hashing de senhas e JWT, incluindo testes unitários.
+import jwt from 'jsonwebtoken'; import bcrypt from 'bcrypt'; import { jwtConfig } from '../config/jwt.config'; export class AuthService { async hashPassword(password: string): Promise<string> { return await bcrypt.hash(password, 10); } async validateUser(password: string, hash: string): Promise<boolean> { return await bcrypt.compare(password, hash); } generateToken(payload: object): string { return jwt.sign(payload, jwtConfig.secret, { expiresIn: jwtConfig.expiresIn }); } verifyToken(token: string): any { return jwt.verify(token, jwtConfig.secret); } }
