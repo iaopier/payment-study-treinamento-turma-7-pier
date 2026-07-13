@@ -1,1 +1,3 @@
-import { FastifyRequest, FastifyReply } from 'fastify'; import { AuthService } from '../services/AuthService'; const authService = new AuthService(); export async function authMiddleware(request: FastifyRequest, reply: FastifyReply) { const authHeader = request.headers.authorization; if (!authHeader || !authHeader.startsWith('Bearer ')) { return reply.status(401).send({ error: 'Unauthorized' }); } const token = authHeader.split(' ')[1]; try { const decoded = authService.verifyToken(token); request.user = decoded; } catch (err) { return reply.status(401).send({ error: 'Invalid token' }); } }
+fix: corrige src/middleware/auth.middleware.ts (QA human review #1)
+
+Middleware com tipagem correta para Fastify.
