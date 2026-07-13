@@ -1,3 +1,3 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
+fix: corrige src/routes/user.routes.ts (QA human review #2)
 
-Ajuste na rota de usuários para manter consistência com a nova estrutura.
+Manutenção da estrutura de rotas de usuário.
