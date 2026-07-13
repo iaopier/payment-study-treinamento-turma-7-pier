@@ -1,1 +1,1 @@
-
+export const generateTestToken = (payload: object) => { return 'mock-jwt-token'; };
