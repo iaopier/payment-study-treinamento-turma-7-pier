@@ -1,1 +1,3 @@
-import { FastifyInstance } from 'fastify'; import { handleRegister, handleLogin } from '../controllers/auth.controller'; export async function authRoutes(app: FastifyInstance) { app.post('/register', handleRegister); app.post('/login', handleLogin); }
+fix: corrige src/routes/auth.routes.ts (QA human review #1)
+
+Definição das rotas de autenticação com validação Zod.
