@@ -1,1 +1,3 @@
-import { FastifyInstance } from 'fastify'; import { userRoutes } from './user.routes'; export async function registerRoutes(app: FastifyInstance) { await app.register(userRoutes, { prefix: '/users' }); }
+fix: corrige src/routes/index.ts (QA human review #1)
+
+Registro das rotas de usuário.
