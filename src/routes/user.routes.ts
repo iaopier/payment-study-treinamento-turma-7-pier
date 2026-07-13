@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
-
-Adição de rotas de login e aplicação do middleware de autenticação nas rotas protegidas.
+import { Router } from 'express'; import { UserController } from '../controllers/UserController'; const router = Router(); router.post('/register', UserController.register); router.post('/login', UserController.login); export { router };
