@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { verifyToken } from '../middleware/auth'; import { UserController } from '../controllers/UserController'; const userRoutes = Router(); const userController = new UserController(); userRoutes.post('/login', userController.login); userRoutes.get('/me', verifyToken, userController.me); userRoutes.put('/:id', verifyToken, userController.update); export { userRoutes };
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Adição de rotas de login e aplicação do middleware de autenticação nas rotas protegidas.
