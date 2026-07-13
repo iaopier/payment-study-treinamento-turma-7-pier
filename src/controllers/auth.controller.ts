@@ -1,3 +1,3 @@
-fix: corrige src/controllers/auth.controller.ts (QA human review #1)
+fix: corrige src/controllers/auth.controller.ts (QA human review #2)
 
-Implementação dos métodos de registro e login com tratamento de erros e tipagem.
+Adicionada interface AuthRequestBody e tipagem estrita para req.body.
