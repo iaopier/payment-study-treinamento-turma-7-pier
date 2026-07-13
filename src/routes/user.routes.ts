@@ -1,1 +1,3 @@
-import { FastifyInstance } from 'fastify'; import { authMiddleware } from '../utils/auth-middleware'; export async function userRoutes(app: FastifyInstance) { app.get('/me', { preHandler: [authMiddleware] }, async (req, reply) => { return { user: req.user }; }); }
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Adição de rota protegida usando authMiddleware.
