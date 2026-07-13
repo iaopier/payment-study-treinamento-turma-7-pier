@@ -1,1 +1,3 @@
-import { Request, Response, NextFunction } from 'express'; import jwt from 'jsonwebtoken'; export const verifyToken = (req: Request, res: Response, next: NextFunction) => { const authHeader = req.headers.authorization; if (!authHeader) return res.status(401).json({ error: 'Token not provided' }); const [, token] = authHeader.split(' '); try { const secret = process.env.JWT_SECRET || 'secret'; const decoded = jwt.verify(token, secret) as { id: string }; req.user = { id: decoded.id }; return next(); } catch { return res.status(401).json({ error: 'Invalid token' }); } };
+fix: corrige src/middleware/auth.ts (QA human review #1)
+
+Implementação do middleware de autenticação com verificação de JWT e proteção de rotas, utilizando a tipagem estendida.
