@@ -1,3 +1,1 @@
-fix: corrige src/services/AuthService.ts (QA human review #1)
-
-Implementação completa de AuthService usando bcrypt e jsonwebtoken.
+import bcrypt from 'bcrypt';import jwt from 'jsonwebtoken';export class AuthService {private static SALT_ROUNDS = 12;private static JWT_SECRET = process.env.JWT_SECRET || 'supersecret';public async hashPassword(password: string): Promise<string> {return await bcrypt.hash(password, AuthService.SALT_ROUNDS);}public async comparePassword(password: string, hash: string): Promise<boolean> {return await bcrypt.compare(password, hash);}public generateToken(payload: object): string {return jwt.sign(payload, AuthService.JWT_SECRET, { expiresIn: '1h' });}public verifyToken(token: string): any {return jwt.verify(token, AuthService.JWT_SECRET);}}
