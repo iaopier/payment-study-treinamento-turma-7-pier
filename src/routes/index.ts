@@ -1,3 +1,1 @@
-fix: corrige src/routes/index.ts (QA human review #2)
-
-Registro das rotas de autenticação no roteador principal.
+import { FastifyInstance } from 'fastify'; import { userRoutes } from './user.routes'; export async function registerRoutes(app: FastifyInstance) { await app.register(userRoutes, { prefix: '/users' }); }
