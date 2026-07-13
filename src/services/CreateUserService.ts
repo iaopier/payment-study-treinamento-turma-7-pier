@@ -1,1 +1,3 @@
-import bcrypt from 'bcrypt'; export class CreateUserService { async hashPassword(password: string): Promise<string> { return await bcrypt.hash(password, 4); } async verifyPassword(password: string, hash: string): Promise<boolean> { return await bcrypt.compare(password, hash); } async authenticate(email: string, password: string) { const user = await this.findUserByEmail(email); if (!user) return null; const isValid = await this.verifyPassword(password, user.password); return isValid ? user : null; } private async findUserByEmail(email: string) { return null; } }
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Criação do serviço para registro de usuários com hash de senha.
