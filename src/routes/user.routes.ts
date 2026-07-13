@@ -1,1 +1,3 @@
-import { FastifyInstance } from 'fastify'; export async function userRoutes(app: FastifyInstance) { app.get('/me', async (req, reply) => { return { status: 'ok' }; }); }
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Ajuste na rota de usuários para manter consistência com a nova estrutura.
