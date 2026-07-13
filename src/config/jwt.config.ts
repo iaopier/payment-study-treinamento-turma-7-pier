@@ -1,1 +1,3 @@
-export const jwtConfig = { secret: process.env.JWT_SECRET || 'super-secret-key', expiresIn: '24h' };
+fix: corrige src/config/jwt.config.ts (QA human review #1)
+
+Configuração centralizada para JWT.
