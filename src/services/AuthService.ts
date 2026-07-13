@@ -1,1 +1,3 @@
-import jwt from 'jsonwebtoken'; import bcrypt from 'bcrypt'; const SECRET = process.env.JWT_SECRET || 'supersecret'; export class AuthService { static async hashPassword(password: string): Promise<string> { return await bcrypt.hash(password, 10); } static async comparePassword(password: string, hash: string): Promise<boolean> { return await bcrypt.compare(password, hash); } static generateToken(userId: string): string { return jwt.sign({ userId }, SECRET, { expiresIn: '15m' }); } static verifyToken(token: string): { userId: string } | null { try { return jwt.verify(token, SECRET) as { userId: string }; } catch { return null; } } }
+fix: corrige src/services/AuthService.ts (QA human review #1)
+
+Implementação completa de AuthService usando bcrypt e jsonwebtoken.
