@@ -1,1 +1,3 @@
-import bcrypt from 'bcrypt'; import jwt from 'jsonwebtoken'; import { prisma } from '../config/prisma'; export class CreateUserService { async execute(data: any) { const passwordHash = await bcrypt.hash(data.password, 8); const user = await prisma.user.create({ data: { ...data, password: passwordHash } }); const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || 'secret', { expiresIn: '1d' }); return { user, token }; } }
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Implementação de hashing de senha com bcrypt e geração de JWT no serviço de criação de usuário.
