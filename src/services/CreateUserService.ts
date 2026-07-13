@@ -1,1 +1,3 @@
-import { AuthService } from './AuthService'; import { prisma } from '../lib/prisma'; export class CreateUserService { async execute(data: any) { const hashedPassword = await AuthService.hashPassword(data.password); return await prisma.user.create({ data: { ...data, password: hashedPassword } }); } }
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Atualização para utilizar AuthService.hashPassword.
