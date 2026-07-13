@@ -1,1 +1,3 @@
-import { FastifyRequest, FastifyReply } from 'fastify'; import { AuthService } from '../services/AuthService'; const authService = new AuthService(); export class AuthController { async login(request: FastifyRequest, reply: FastifyReply) { const { email, password } = request.body as any; const user = await (request.server as any).prisma.user.findUnique({ where: { email } }); if (!user || !(await authService.validateUser(password, user.password))) { return reply.status(401).send({ error: 'Invalid credentials' }); } const token = authService.generateToken({ id: user.id, email: user.email }); return { token }; } async me(request: FastifyRequest, reply: FastifyReply) { return request.user; } }
+fix: corrige src/controllers/AuthController.ts (QA human review #1)
+
+Controller de autenticação com injeção de dependência.
