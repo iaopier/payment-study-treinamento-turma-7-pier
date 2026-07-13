@@ -1,1 +1,3 @@
-import { FastifyReply, FastifyRequest } from 'fastify'; import { AuthService } from '../services/AuthService'; export async function authMiddleware(request: FastifyRequest, reply: FastifyReply) { try { const authHeader = request.headers.authorization; if (!authHeader) throw new Error('Unauthorized'); const token = authHeader.split(' ')[1]; request.user = AuthService.verifyToken(token); } catch (err) { reply.status(401).send({ error: 'Unauthorized' }); } }
+fix: corrige src/utils/auth-middleware.ts (QA human review #1)
+
+Implementação do middleware de autenticação com extensão de tipos do Fastify para evitar erros de compilação.
