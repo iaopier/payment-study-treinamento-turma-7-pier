@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #2)
-
-Manutenção da estrutura de rotas de usuário.
+import { Router } from 'express'; import { verifyToken } from '../middleware/auth'; import { UserController } from '../controllers/UserController'; const userRoutes = Router(); const userController = new UserController(); userRoutes.post('/login', userController.login); userRoutes.get('/me', verifyToken, userController.me); userRoutes.put('/:id', verifyToken, userController.update); export { userRoutes };
