@@ -1,6 +1,3 @@
-import { Router } from 'express';
-import { UserController } from '../controllers/UserController';
+fix: corrige src/routes/index.ts (QA human review #1)
 
-const router = Router();
-router.post('/auth/login', UserController.login);
-export default router;
+Registro da rota de login.
