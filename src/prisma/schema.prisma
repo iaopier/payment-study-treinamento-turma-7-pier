@@ -1,3 +1,6 @@
-fix: corrige src/prisma/schema.prisma (QA human review #1)
-
-Adicionado modelo User com campos email e password para suportar autenticação.
+model User {
+  id           String @id @default(uuid())
+  email        String @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
