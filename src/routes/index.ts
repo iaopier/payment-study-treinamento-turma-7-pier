@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { router as userRoutes } from './user.routes'; const router = Router(); router.use('/auth', userRoutes); export { router };
+fix: corrige src/routes/index.ts (QA human review #1)
+
+Registro das rotas de usuário no router principal.
