@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Implementação completa do serviço de criação de usuário com tipagem estrita e testes unitários.
+import bcrypt from 'bcrypt'; import jwt from 'jsonwebtoken'; import { prisma } from '../lib/prisma'; export class AuthService { async register(data: any) { if (data.password.length < 8) throw new Error('Password too short'); const hashedPassword = await bcrypt.hash(data.password, 10); return await prisma.user.create({ data: { email: data.email, password: hashedPassword } }); } async login(data: any) { const user = await prisma.user.findUnique({ where: { email: data.email } }); if (!user || !(await bcrypt.compare(data.password, user.password))) throw new Error('Invalid credentials'); const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET || 'secret', { expiresIn: '24h' }); return { token }; } }
