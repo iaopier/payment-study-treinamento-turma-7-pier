@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #2)
-
-Implementação de validações Zod nos endpoints de registro e login e inclusão do middleware AuthGuard.
+import { Router } from 'express'; import { UserController } from '../controllers/UserController'; const router = Router(); const controller = new UserController(); router.post('/register', controller.register); export { router };
