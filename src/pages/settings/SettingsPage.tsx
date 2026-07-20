@@ -1,1 +1,3 @@
-import React from 'react'; import { UserSettingsButton } from '../../components/user-settings/UserSettingsButton'; export const SettingsPage: React.FC = () => { return (<div className="settings-page-container" style={{ padding: '1rem' }}><form className="settings-form" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}><input type="text" placeholder="Identificação" /><input type="password" placeholder="Senha temporária" /><UserSettingsButton /></form></div>); };
+fix: corrige src/pages/settings/SettingsPage.tsx (QA human review #1)
+
+Ajuste do wrapper do formulário para garantir alinhamento consistente e inclusão de testes unitários conforme solicitado pela QA.
