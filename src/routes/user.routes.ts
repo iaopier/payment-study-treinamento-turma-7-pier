@@ -1,1 +1,3 @@
-import { FastifyInstance } from 'fastify'; import { UserController } from '../controllers/UserController'; export async function userRoutes(fastify: FastifyInstance) { const controller = new UserController(); fastify.post('/auth/register', controller.register); fastify.post('/auth/login', controller.login); }
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Definição das rotas de autenticação.
