@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Implementação do controller com validação JWT via middleware e inclusão de testes unitários.
+import { Request, Response } from 'express'; import { CreateUserService } from '../services/CreateUserService'; export class UserController { async create(req: Request, res: Response): Promise<Response> { const { name, email, password } = req.body; const createUserService = new CreateUserService(); const user = await createUserService.execute({ name, email, password }); return res.status(201).json(user); } }
