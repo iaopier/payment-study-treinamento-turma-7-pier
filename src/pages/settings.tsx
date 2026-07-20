@@ -1,1 +1,3 @@
-import React from 'react'; export default function Settings() { return (<div className="settings-container"><h1>Configurações</h1><div className="login-button-container"><button type="button" className="login-btn">Login</button></div></div>); }
+fix: corrige src/pages/settings.tsx (QA human review #1)
+
+Adicionado container para o botão de login com classe CSS para controle de alinhamento responsivo e exportado componente para facilitar testes.
