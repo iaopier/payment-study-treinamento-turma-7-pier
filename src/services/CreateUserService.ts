@@ -1,3 +1,12 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #2)
+import crypto from 'crypto';
 
-Removido fallback hardcoded para JWT_SECRET, agora exige process.env.JWT_SECRET. Adicionada tipagem estrita e validações.
+export class CreateUserService {
+  async execute(email: string) {
+    const temporaryPassword = crypto.randomBytes(8).toString('hex');
+    return {
+      email,
+      temporaryPassword,
+      createdAt: new Date()
+    };
+  }
+}
