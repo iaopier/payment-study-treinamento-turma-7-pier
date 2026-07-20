@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { UserController } from '../controllers/UserController'; const router = Router(); const controller = new UserController(); router.post('/register', controller.register); export { router };
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Definição de rotas e aplicação de middleware de autenticação.
