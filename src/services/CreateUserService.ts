@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Integração com AuthService para hashing de senha antes da persistência.
+import { prisma } from '../lib/prisma'; import bcrypt from 'bcryptjs'; import jwt from 'jsonwebtoken'; export class CreateUserService { async register(data: any) { const passwordHash = await bcrypt.hash(data.password, 8); return await prisma.user.create({ data: { ...data, password: passwordHash } }); } async login(email: string, password: string) { const user = await prisma.user.findUnique({ where: { email } }); if (!user || !(await bcrypt.compare(password, user.password))) { throw new Error('Invalid credentials'); } const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET || 'secret', { expiresIn: '1d' }); return { user, token }; } }
