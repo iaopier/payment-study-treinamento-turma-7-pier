@@ -1,1 +1,3 @@
-.user-settings-button-container { display: flex; justify-content: flex-start; align-items: center; margin-top: 1.5rem; width: 100%; } .user-settings-button { padding: 0.75rem 1.5rem; width: 100%; max-width: 100%; box-sizing: border-box; }
+fix: corrige src/components/user-settings/UserSettingsButton.css (QA human review #1)
+
+Substituição de unidades fixas (px) por unidades relativas (rem) para garantir consistência em dispositivos móveis. Ajuste do flexbox para alinhamento centralizado consistente.
