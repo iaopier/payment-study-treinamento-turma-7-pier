@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Controlador para registro e login de usuários.
+import { Request, Response } from 'express'; import { z } from 'zod'; import { CreateUserService } from '../services/CreateUserService'; const schema = z.object({ email: z.string().email(), password: z.string().min(6) }); export class UserController { async register(req: Request, res: Response) { const data = schema.parse(req.body); const service = new CreateUserService(); const user = await service.execute(data); return res.status(201).json(user); } }
