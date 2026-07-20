@@ -1,3 +1,3 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
+fix: corrige src/routes/user.routes.ts (QA human review #2)
 
-Implementação dos endpoints de auth e inclusão do middleware AuthGuard para proteção de rotas.
+Implementação de validações Zod nos endpoints de registro e login e inclusão do middleware AuthGuard.
