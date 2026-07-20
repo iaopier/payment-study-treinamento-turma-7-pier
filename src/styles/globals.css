@@ -1,1 +1,1 @@
-body { margin: 0; padding: 0; } .settings-container { padding: 20px; } .login-button-container { display: flex; justify-content: flex-start; } @media (max-width: 768px) { .login-button-container { justify-content: center; width: 100%; } .login-btn { width: 100%; max-width: 300px; } }
+.config-container { padding: 20px; } .config-form { display: flex; flex-direction: column; gap: 16px; } .login-button-wrapper { display: flex; justify-content: flex-start; } @media (max-width: 768px) { .login-button-wrapper { justify-content: center; width: 100%; } .login-btn { width: 100%; } }
