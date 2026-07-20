@@ -1,0 +1,1 @@
+import React from 'react'; interface UserProfileButtonProps { label: string; onClick: () => void; } export const UserProfileButton: React.FC<UserProfileButtonProps> = ({ label, onClick }) => { return ( <div className="user-profile-button-container"> <button type="button" onClick={onClick} className="user-profile-button"> {label} </button> </div> ); };
