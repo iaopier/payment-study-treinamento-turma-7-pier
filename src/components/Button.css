@@ -1,0 +1,1 @@
+.button-container { display: flex; flex-direction: column; width: 100%; align-items: stretch; margin-top: 1.5rem; } .button-container .btn { padding: 0.75rem 1rem; width: 100%; box-sizing: border-box; } @media (max-width: 767px) { .button-container { margin-top: 1rem; gap: 0.5rem; } .button-container .btn { font-size: 1rem; } }
