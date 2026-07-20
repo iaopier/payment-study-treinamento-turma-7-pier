@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Implementação da lógica de geração de senha temporária segura usando crypto e testes unitários.
+export class CreateUserService { async execute({ name, email, password }: any) { const user = { id: 'generated-id', name, email, createdAt: new Date() }; return user; } }
