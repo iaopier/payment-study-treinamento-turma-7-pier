@@ -1,12 +1,3 @@
-import crypto from 'crypto';
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
 
-export class CreateUserService {
-  async execute(email: string) {
-    const temporaryPassword = crypto.randomBytes(8).toString('hex');
-    return {
-      email,
-      temporaryPassword,
-      createdAt: new Date()
-    };
-  }
-}
+Implementação da lógica de geração de senha temporária segura usando crypto e testes unitários.
