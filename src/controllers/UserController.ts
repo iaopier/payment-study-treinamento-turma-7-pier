@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Implementação do controlador com validação Zod e testes unitários.
+import { Request, Response } from 'express'; import { AuthService } from '../services/CreateUserService'; const authService = new AuthService(); export const UserController = { async register(req: Request, res: Response) { try { const user = await authService.register(req.body); return res.status(201).json(user); } catch (e) { return res.status(400).json({ error: e.message }); } }, async login(req: Request, res: Response) { try { const { token } = await authService.login(req.body); res.setHeader('Authorization', `Bearer ${token}`); return res.status(200).json({ message: 'Logged in' }); } catch (e) { return res.status(401).json({ error: e.message }); } } };
