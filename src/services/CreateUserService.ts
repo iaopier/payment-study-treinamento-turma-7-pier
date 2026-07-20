@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Implementação do serviço de criação de usuário com hash de senha.
+import bcrypt from 'bcrypt'; import { userRepository } from '../repositories/userRepository'; import type { UserDTO } from '../dtos/UserDTO'; export class CreateUserService { async execute(data: UserDTO) { const hashedPassword = await bcrypt.hash(data.password, 10); return await userRepository.create({ ...data, password: hashedPassword }); } }
