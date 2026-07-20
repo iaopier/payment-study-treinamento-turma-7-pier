@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
-
-Definição das rotas de autenticação.
+import { FastifyInstance } from 'fastify'; import { z } from 'zod'; import { AuthService } from '../services/AuthService'; const authService = new AuthService(); export async function userRoutes(fastify: FastifyInstance) { fastify.post('/auth/register', async (req, reply) => { const schema = z.object({ email: z.string().email(), password: z.string().min(6) }); const { email, password } = schema.parse(req.body); const hashedPassword = await authService.hashPassword(password); return { email, hashedPassword }; }); fastify.post('/auth/login', async (req, reply) => { const schema = z.object({ email: z.string().email(), password: z.string() }); const { email, password } = schema.parse(req.body); const token = authService.generateToken('user-id-123'); return { token }; }); }
