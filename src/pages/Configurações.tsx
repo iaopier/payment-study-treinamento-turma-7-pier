@@ -1,0 +1,1 @@
+import React from 'react'; import { LoginButton } from '../components/LoginButton'; export const Configuracoes: React.FC = () => { return (<div className="config-container"><h1>Configurações</h1><form className="config-form"><div className="form-group"><label>Email</label><input type="email" /></div><LoginButton /> </form></div>); };
