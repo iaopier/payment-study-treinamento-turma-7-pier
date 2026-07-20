@@ -1,1 +1,3 @@
-.login-button { display: flex; align-items: center; justify-content: center; padding: 10px 20px; width: 100%; } @media (max-width: 767px) { .login-button { width: 100%; margin-top: 16px; justify-content: center; align-self: stretch; } }
+fix: corrige src/components/LoginButton.css (QA human review #1)
+
+Adicionada media query para garantir alinhamento centralizado e consistente em telas menores que 768px, corrigindo o desalinhamento reportado.
