@@ -1,3 +1,1 @@
-fix: corrige src/routes/index.ts (QA human review #1)
-
-Registro da rota de login.
+import { Router } from 'express'; import { router as userRoutes } from './user.routes'; const router = Router(); router.use('/auth', userRoutes); export { router };
