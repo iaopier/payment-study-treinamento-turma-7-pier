@@ -1,3 +1,3 @@
-fix: corrige src/services/AuthService.ts (QA human review #1)
+fix: corrige src/services/AuthService.ts (QA human review #2)
 
-Implementação completa de AuthService com hashing, JWT, tipagem estrita do payload e validação de variáveis de ambiente.
+Removido valor hardcoded para JWT_SECRET, adicionada validação de ambiente no construtor e tipagem estrita para payload JWT.
