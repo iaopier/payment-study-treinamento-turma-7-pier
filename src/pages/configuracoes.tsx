@@ -1,0 +1,1 @@
+import React from 'react'; export default function Configuracoes() { return (<div className="config-container"><h1>Configurações</h1><form className="config-form"><div className="form-group"><label>Email</label><input type="email" /></div><div className="login-button-wrapper"><button type="submit" className="login-btn">Login</button></div></form></div>); }
