@@ -1,3 +1,3 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
+fix: corrige src/services/CreateUserService.ts (QA human review #2)
 
-Implementação do serviço de autenticação com tipagem estrita, uso de bcrypt para hashing e JWT para tokens. Adição de validações de email e senha.
+Removido fallback hardcoded para JWT_SECRET, agora exige process.env.JWT_SECRET. Adicionada tipagem estrita e validações.
