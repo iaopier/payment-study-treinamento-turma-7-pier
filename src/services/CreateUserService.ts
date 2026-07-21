@@ -1,3 +1,3 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
+fix: corrige src/services/CreateUserService.ts (QA human review #2)
 
-Implementação do serviço de criação de usuário com hash de senha usando bcryptjs e testes unitários.
+Serviço de criação de usuário com tipagem estrita e hash de senha.
