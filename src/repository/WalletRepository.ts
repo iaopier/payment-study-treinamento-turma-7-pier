@@ -1,1 +1,3 @@
-export interface Notification { id: string; userId: string; isRead: boolean; message: string; } export class WalletRepository { private db: Notification[] = []; async findAllByUserId(userId: string): Promise<Notification[]> { return this.db.filter(n => n.userId === userId); } async markAsRead(notificationId: string): Promise<void> { const index = this.db.findIndex(n => n.id === notificationId); if (index !== -1) { this.db[index].isRead = true; } } }
+fix: corrige src/repository/WalletRepository.ts (QA human review #1)
+
+Criação do repositório para persistência e consulta de notificações.
