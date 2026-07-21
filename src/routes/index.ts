@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { GetUserService } from '../services/GetUserService'; const routes = Router(); const userService = new GetUserService(); routes.get('/notifications/:userId', async (req, res) => { const { userId } = req.params; const data = await userService.getUserNotifications(userId); return res.json(data); }); export { routes };
+fix: corrige src/routes/index.ts (QA human review #1)
+
+Configuração da rota de notificações e inclusão dos testes de integração obrigatórios.
