@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #2)
-
-Rotas de usuário com autenticação e endpoints de registro/login.
+import { Router } from 'express'; import { UserController } from '../controllers/UserController'; import { authMiddleware } from '../middleware/auth'; const router = Router(); router.post('/register', UserController.register); router.post('/login', UserController.login); router.get('/profile', authMiddleware, UserController.profile); export { router };
