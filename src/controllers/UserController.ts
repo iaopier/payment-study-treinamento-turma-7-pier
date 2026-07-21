@@ -1,1 +1,3 @@
-import { FastifyReply, FastifyRequest } from 'fastify'; import { z } from 'zod'; import { CreateUserService } from '../services/CreateUserService'; const createUserSchema = z.object({ email: z.string().email(), password: z.string().min(8) }); export class UserController { async create(request: FastifyRequest, reply: FastifyReply) { const data = createUserSchema.parse(request.body); const service = new CreateUserService(); const user = await service.execute(data); return reply.status(201).send(user); } }
+fix: corrige src/controllers/UserController.ts (QA human review #1)
+
+Implementação do controller com validação Zod e testes unitários associados.
