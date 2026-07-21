@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { reportSchema } from '../services/CreateUserService'; import { ReportRepository } from '../repository/ReportRepository'; const router = Router(); const repo = new ReportRepository(); router.get('/activity-report', async (req, res) => { const validation = reportSchema.safeParse(req.query); if (!validation.success) return res.status(400).json(validation.error); const { accountId, startDate, endDate } = validation.data; const report = await repo.findByAccountAndPeriod(accountId, new Date(startDate), new Date(endDate)); return res.json(report); }); export default router;
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Criação da rota GET /user/activity-report com validação e integração.
