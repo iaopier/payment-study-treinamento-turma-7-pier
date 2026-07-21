@@ -1,3 +1,3 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
+fix: corrige src/controllers/UserController.ts (QA human review #2)
 
-Implementação do controller com tipagem estrita para requisições de autenticação.
+Implementado controller com tipagem estrita e validação de dados recebidos via middleware.
