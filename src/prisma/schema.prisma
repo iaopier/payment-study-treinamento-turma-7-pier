@@ -1,1 +1,3 @@
-generator client { provider = "prisma-client-js" } datasource db { provider = "postgresql" url = env("DATABASE_URL") } model User { id String @id @default(uuid()) email String @unique name String? saveInterval Int @default(30) createdAt DateTime @default(now()) updatedAt DateTime @updatedAt }
+fix: corrige src/prisma/schema.prisma (QA human review #1)
+
+Adicionado campo saveInterval para persistência de configuração de salvamento, mantendo consistência com a nova mensagem de interface.
