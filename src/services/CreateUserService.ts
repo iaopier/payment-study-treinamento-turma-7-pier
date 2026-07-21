@@ -1,1 +1,15 @@
-import { UserRepository } from '../repositories/UserRepository'; interface CreateUserDTO { name: string; email: string; } export class CreateUserService { constructor(private userRepository: UserRepository) {} async execute({ name, email }: CreateUserDTO) { const userExists = await this.userRepository.findByEmail(email); if (userExists) throw new Error('User already exists'); return this.userRepository.create({ name, email }); } }
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export class CreateUserService {
+  async execute(data: { name: string; email: string }) {
+    return await prisma.$transaction(async (tx) => {
+      const user = await tx.user.create({ data });
+      await tx.wallet.create({
+        data: { userId: user.id, balance: 0 },
+      });
+      return user;
+    });
+  }
+}
