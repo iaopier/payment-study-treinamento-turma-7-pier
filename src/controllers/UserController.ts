@@ -1,1 +1,3 @@
-import { Request, Response } from 'express'; import { CreateActivityReportService } from '../services/CreateActivityReportService'; import { ActivityReportRepository } from '../repository/ActivityReportRepository'; export class UserController { async getActivityReport(req: Request, res: Response) { const service = new CreateActivityReportService(new ActivityReportRepository()); try { const result = await service.execute({ accountId: req.params.id, startDate: new Date(req.query.start as string), endDate: new Date(req.query.end as string) }); return res.json(result); } catch (e) { return res.status(400).json({ error: 'Invalid parameters' }); } } }
+fix: corrige src/controllers/UserController.ts (QA human review #1)
+
+Implementação do controller com injeção de dependência e testes.
