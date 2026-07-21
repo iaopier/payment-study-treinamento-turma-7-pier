@@ -1,3 +1,3 @@
-fix: corrige src/routes/user.routes.test.ts (QA human review #2)
+fix: corrige src/routes/user.routes.test.ts (QA human review #1)
 
-Testes de integração para as rotas de usuário.
+Testes para as rotas de usuário.
