@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #2)
-
-Adicionada validação Zod para os parâmetros do relatório.
+export class CreateUserService { async execute(data: any) { return { status: 'success', user: data }; } }
