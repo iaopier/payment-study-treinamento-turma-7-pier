@@ -1,3 +1,1 @@
-fix: corrige src/repository/UserRepository.ts (QA human review #1)
-
-Implementação do repositório com métodos de persistência e busca, incluindo testes unitários.
+import { prisma } from '../prisma/client'; export class UserRepository { async findByEmail(email: string) { return await prisma.user.findUnique({ where: { email } }); } async findById(id: string) { return await prisma.user.findUnique({ where: { id } }); } async create(data: any) { return await prisma.user.create({ data }); } }
