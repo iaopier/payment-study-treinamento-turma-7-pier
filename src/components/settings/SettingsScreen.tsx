@@ -1,0 +1,1 @@
+import React from 'react'; export const SettingsScreen: React.FC = () => { return (<div><div className="alert">Suas alterações são salvas automaticamente a cada 30 segundos</div><h1>Configurações</h1></div>); };
