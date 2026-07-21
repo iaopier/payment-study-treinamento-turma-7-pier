@@ -1,1 +1,3 @@
-generator client { provider = "prisma-client-js" } datasource db { provider = "postgresql" url = env("DATABASE_URL") } model UserActivityReport { id String @id @default(uuid()) accountId String createdAt DateTime @default(now()) startDate DateTime endDate DateTime data Json @@index([accountId, startDate, endDate]) }
+fix: corrige src/prisma/schema.prisma (QA human review #1)
+
+Adicionada a tabela UserActivityReport com campos de conta, período e dados consolidados.
