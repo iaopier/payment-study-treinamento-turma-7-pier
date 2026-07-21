@@ -1,1 +1,3 @@
-import { AuthService } from './AuthService'; export const CreateUserService = { execute: async (data: any) => { const emailRegex = /^\S+@\S+\.\S+$/; if (!emailRegex.test(data.email)) throw new Error('Invalid email'); const hashedPassword = await AuthService.hashPassword(data.password); return { ...data, password: hashedPassword }; } };
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Implementação do serviço de criação de usuário com hash de senha usando bcryptjs e testes unitários.
