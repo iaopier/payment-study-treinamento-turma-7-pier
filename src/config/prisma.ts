@@ -1,3 +1,3 @@
-fix: corrige src/config/prisma.ts (QA human review #1)
+fix: corrige src/config/prisma.ts (QA human review #2)
 
-Configuração do PrismaClient com suporte a auto-generate.
+Configurado PrismaClient para garantir exportação singleton e compatibilidade com auto-generate.
