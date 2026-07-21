@@ -1,1 +1,3 @@
-import { z } from 'zod'; export const reportSchema = z.object({ accountId: z.string().uuid(), startDate: z.string().datetime(), endDate: z.string().datetime() });
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Adicionada validação Zod para os parâmetros do relatório.
