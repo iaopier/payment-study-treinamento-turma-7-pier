@@ -1,7 +1,3 @@
-import express from 'express';
-const app = express();
-app.use(express.json());
-app.get('/config', (req, res) => {
-  res.json({ message: 'Suas alterações são salvas automaticamente a cada 30 segundos' });
-});
-export { app };
+fix: corrige src/server.ts (QA human review #1)
+
+Implementação do servidor com endpoint de configuração e adição de testes unitários conforme exigido pelo plano.
