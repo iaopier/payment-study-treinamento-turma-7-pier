@@ -1,1 +1,3 @@
-export const validateConfigIntegrity = (config: { saveInterval: number }): boolean => { return typeof config.saveInterval === 'number' && config.saveInterval > 0; }; export const getSecurityHeader = (): string => { return 'X-Config-Verified'; };
+fix: corrige src/utils/security-test.ts (QA human review #1)
+
+Implementação de utilitário para validação de integridade de configurações de sistema, garantindo que o intervalo de salvamento esteja dentro dos limites esperados.
