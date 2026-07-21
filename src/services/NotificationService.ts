@@ -1,3 +1,1 @@
-fix: corrige src/services/NotificationService.ts (QA human review #1)
-
-Implementação completa do serviço com métodos de criação, listagem, marcação de leitura e contagem, incluindo validações de segurança.
+import { NotificationRepository } from '../repository/NotificationRepository'; const repo = new NotificationRepository(); export class NotificationService { async getUserNotifications(userId: string, page: number, limit: number, isRead?: boolean) { return repo.fetchByUserId(userId, page, limit, isRead); } async markAllAsRead(userId: string) { return repo.markAsReadAll(userId); } async createNotification(data: { userId: string; type: string; message: string }) { return repo.create(data); } async getUnreadCount(userId: string) { return repo.countUnread(userId); } }
