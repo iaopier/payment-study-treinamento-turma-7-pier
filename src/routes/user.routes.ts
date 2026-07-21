@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { UserController } from '../controllers/UserController'; import { authMiddleware } from '../middleware/auth'; const router = Router(); router.post('/register', UserController.register); router.post('/login', UserController.login); router.get('/profile', authMiddleware, UserController.profile); export { router };
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Implementação das rotas de usuário com proteção de middleware.
