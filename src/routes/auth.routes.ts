@@ -1,3 +1,3 @@
-fix: corrige src/routes/auth.routes.ts (QA human review #1)
+fix: corrige src/routes/auth.routes.ts (QA human review #2)
 
-Implementação das rotas com validação Zod.
+Implementado rotas com validação Zod e interrupção de fluxo em caso de erro.
