@@ -1,3 +1,1 @@
-fix: corrige src/middleware/auth.ts (QA human review #1)
-
-Implementação do middleware de autenticação com verificação de JWT e proteção de rotas, utilizando a tipagem estendida.
+import { Request, Response, NextFunction } from 'express'; import { AuthService } from '../services/AuthService'; export const authMiddleware = (req: Request, res: Response, next: NextFunction) => { const authHeader = req.headers.authorization; if (!authHeader) return res.status(401).json({ error: 'Token missing' }); const [, token] = authHeader.split(' '); try { const decoded = AuthService.verifyToken(token); (req as any).user = decoded; next(); } catch { return res.status(401).json({ error: 'Invalid token' }); } };
