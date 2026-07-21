@@ -1,3 +1,1 @@
-fix: corrige src/prisma/schema.prisma (QA human review #2)
-
-Adição do modelo Notification para persistência de notificações do sistema.
+model User { id String @id @default(uuid()) email String @unique notifications Notification[] } model Notification { id String @id @default(uuid()) userId String user User @relation(fields: [userId], references: [id]) type String message String readStatus Boolean @default(false) createdAt DateTime @default(now()) }
