@@ -1,3 +1,3 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
+fix: corrige src/routes/user.routes.ts (QA human review #2)
 
-Criação da rota GET /user/activity-report com validação e integração.
+Implementado endpoint GET /user/activity-report integrando validação e repositório.
