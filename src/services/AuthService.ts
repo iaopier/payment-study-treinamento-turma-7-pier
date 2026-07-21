@@ -1,1 +1,3 @@
-import { hash, compare } from 'bcrypt'; import { prisma } from '../config/prisma'; export class AuthService { async register(email: string, password: string) { const passwordHash = await hash(password, 10); return await prisma.user.create({ data: { email, passwordHash } }); } async login(email: string, password: string) { const user = await prisma.user.findUnique({ where: { email } }); if (!user || !(await compare(password, user.passwordHash))) throw new Error('Invalid credentials'); return user; } }
+fix: corrige src/services/AuthService.ts (QA human review #1)
+
+Implementação da lógica de registro e login com bcrypt.
