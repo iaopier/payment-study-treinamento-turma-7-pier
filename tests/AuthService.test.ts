@@ -1,3 +1,3 @@
-fix: corrige tests/AuthService.test.ts (QA human review #2)
+fix: corrige tests/AuthService.test.ts (QA human review #1)
 
-Testes unitários para AuthService cobrindo hashing, comparação e JWT.
+Criação de testes unitários para AuthService.
