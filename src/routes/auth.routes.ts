@@ -1,3 +1,1 @@
-fix: corrige src/routes/auth.routes.ts (QA human review #1)
-
-Definição das rotas de autenticação.
+import { FastifyInstance } from 'fastify'; import { UserController } from '../controllers/UserController'; export async function authRoutes(app: FastifyInstance) { const controller = new UserController(); app.post('/register', controller.register); app.post('/login', controller.login); }
