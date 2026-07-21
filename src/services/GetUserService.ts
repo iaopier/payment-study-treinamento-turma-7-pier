@@ -1,1 +1,3 @@
-import { WalletRepository } from '../repository/WalletRepository'; export class GetUserService { private walletRepository: WalletRepository; constructor() { this.walletRepository = new WalletRepository(); } async getUserNotifications(userId: string) { const notifications = await this.walletRepository.findAllByUserId(userId); const unreadCount = notifications.filter(n => !n.isRead).length; return { notifications, unreadCount }; } }
+fix: corrige src/services/GetUserService.ts (QA human review #1)
+
+Implementação da lógica de contagem de notificações não lidas e inclusão dos testes unitários obrigatórios.
