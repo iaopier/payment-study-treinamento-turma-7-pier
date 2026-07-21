@@ -1,1 +1,3 @@
-export const SETTINGS_CONFIG = { AUTO_SAVE_INTERVAL_SECONDS: 30 };
+fix: corrige src/config/settings.ts (QA human review #1)
+
+Adicionada constante para o intervalo de salvamento para garantir consistência global.
