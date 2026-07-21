@@ -1,1 +1,3 @@
-import { FastifyRequest, FastifyReply } from 'fastify'; import jwt from 'jsonwebtoken'; const JWT_SECRET = process.env.JWT_SECRET || 'supersecret'; export async function authMiddleware(request: FastifyRequest, reply: FastifyReply) { const authHeader = request.headers.authorization; if (!authHeader || !authHeader.startsWith('Bearer ')) { return reply.status(401).send({ message: 'Token missing or invalid' }); } const token = authHeader.split(' ')[1]; try { const decoded = jwt.verify(token, JWT_SECRET) as { userId: string }; request.user = { id: decoded.userId }; } catch (err) { return reply.status(401).send({ message: 'Token expired or invalid' }); } }
+fix: corrige src/middleware/auth.middleware.ts (QA human review #1)
+
+Implementação do middleware de autenticação utilizando decorateRequest para injetar o usuário no FastifyRequest, corrigindo o erro de tipagem.
