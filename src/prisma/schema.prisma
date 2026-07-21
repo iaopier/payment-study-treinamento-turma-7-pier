@@ -1,1 +1,3 @@
-model UserActivityReport { id String @id @default(uuid()) accountId String createdAt DateTime @default(now()) summary Json @@index([accountId, createdAt]) }
+fix: corrige src/prisma/schema.prisma (QA human review #1)
+
+Adicionada a tabela UserActivityReport para persistir relatórios consolidados com índices para conta e período.
