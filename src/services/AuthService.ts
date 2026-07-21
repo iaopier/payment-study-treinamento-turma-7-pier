@@ -1,3 +1,1 @@
-fix: corrige src/services/AuthService.ts (QA human review #2)
-
-Implementado AuthService com bcrypt para hash e verificação de senhas.
+import jwt from 'jsonwebtoken'; import bcrypt from 'bcryptjs'; const SECRET = process.env.JWT_SECRET || 'supersecret'; export const AuthService = { hashPassword: async (password: string) => await bcrypt.hash(password, 12), comparePassword: async (password: string, hash: string) => await bcrypt.compare(password, hash), generateToken: (userId: string) => jwt.sign({ userId }, SECRET, { expiresIn: '1h' }), verifyToken: (token: string) => jwt.verify(token, SECRET) as { userId: string } };
