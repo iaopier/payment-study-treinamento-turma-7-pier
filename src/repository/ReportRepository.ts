@@ -1,3 +1,1 @@
-fix: corrige src/repository/ReportRepository.ts (QA human review #2)
-
-Implementada lógica de agregação e persistência utilizando instância compartilhada do Prisma.
+import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); export class ReportRepository { async saveReport(accountId: string, summary: any) { return await prisma.userActivityReport.create({ data: { accountId, summary } }); } async getLatestReport(accountId: string) { return await prisma.userActivityReport.findFirst({ where: { accountId }, orderBy: { createdAt: 'desc' } }); } }
