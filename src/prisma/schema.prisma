@@ -1,3 +1,1 @@
-fix: corrige src/prisma/schema.prisma (QA human review #2)
-
-Adição do modelo Notification com campos necessários e índices para performance.
+model Notification { id String @id @default(uuid()) userId String type String message String isRead Boolean @default(false) createdAt DateTime @default(now()) @@map("notifications") }
