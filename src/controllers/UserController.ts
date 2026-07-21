@@ -1,1 +1,3 @@
-import { Request, Response } from 'express'; import { CreateUserService } from '../services/CreateUserService'; export class UserController { async create(req: Request, res: Response) { const start = Date.now(); try { const service = new CreateUserService(); const user = await service.execute(req.body); const duration = Date.now() - start; console.log(`UserController.create completed in ${duration}ms`); return res.status(201).json(user); } catch (error) { console.error('UserController.create error:', error); return res.status(500).json({ error: 'Internal server error' }); } } }
+fix: corrige src/controllers/UserController.ts (QA human review #1)
+
+Implementado controller com logging estruturado e testes unitários.
