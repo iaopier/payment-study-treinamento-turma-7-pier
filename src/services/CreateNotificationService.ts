@@ -1,0 +1,1 @@
+import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); export class CreateNotificationService { async execute(data: { userId: string; type: string; message: string }) { return await prisma.notification.create({ data }); } async getUnreadCount(userId: string) { return await prisma.notification.count({ where: { userId, isRead: false } }); } }
