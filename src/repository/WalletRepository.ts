@@ -1,27 +1,18 @@
-import { prisma } from '../config/prisma.ts'
-import { Wallet } from '../prisma/generated/client.ts'
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export class WalletRepository {
-
-    async create(userId: string): Promise<Wallet | null> {
-        return prisma.wallet.create({
-            data: {
-                userId,
-                balance: 0
-            }
-        })
-    }
-
-    async findByUserId(userId: string): Promise<Wallet | null> {
-        return prisma.wallet.findUnique({
-            where: { userId }
-        })
-    }
-
-    async findById(id: string): Promise<Wallet | null> {
-        return prisma.wallet.findUnique({
-            where: { id }
-        })
-    }
-
+  async updateBalance(walletId: string, amount: number): Promise<void> {
+    await prisma.$transaction(async (tx) => {
+      const wallet = await tx.wallet.findUnique({
+        where: { id: walletId },
+      });
+      if (!wallet) throw new Error('Wallet not found');
+      await tx.wallet.update({
+        where: { id: walletId },
+        data: { balance: { increment: amount } },
+      });
+    });
+  }
 }
