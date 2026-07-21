@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Implementação completa do controller com tipagem estrita e inclusão de testes unitários conforme solicitado pela QA.
+import { FastifyReply, FastifyRequest } from 'fastify'; import { AuthService } from '../services/AuthService'; const authService = new AuthService(); export class UserController { async register(req: FastifyRequest, reply: FastifyReply) { const { email, password } = req.body as any; const user = await authService.register(email, password); return reply.status(201).send({ id: user.id }); } async login(req: FastifyRequest, reply: FastifyReply) { const { email, password } = req.body as any; const user = await authService.login(email, password); const token = reply.jwtSign({ sub: user.id }); return reply.send({ token }); } }
