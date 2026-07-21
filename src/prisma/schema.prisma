@@ -1,3 +1,1 @@
-fix: corrige src/prisma/schema.prisma (QA human review #1)
-
-Adição do modelo User para persistência de dados de autenticação.
+model User { id String @id @default(uuid()) email String @unique passwordHash String createdAt DateTime @default(now()) }
