@@ -1,4 +1,3 @@
-# Projeto
+fix: corrige README.md (QA human review #1)
 
-## Configurações
-O sistema salva automaticamente as alterações a cada 30 segundos.
+Documentada a frequência de salvamento automático na seção de configurações.
