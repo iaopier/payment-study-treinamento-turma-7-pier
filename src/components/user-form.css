@@ -1,0 +1,33 @@
+.user-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.user-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-form-button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .user-form-button-container {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eaeaea;
+  }
+
+  .user-form-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+}
