@@ -1,5 +1,3 @@
-export class CreateUserService {
-  async execute(data: any) {
-    return { id: '1', ...data };
-  }
-}
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Serviço para persistência de novos usuários.
