@@ -1,3 +1,3 @@
-fix: corrige src/repository/NotificationsRepository.test.ts (QA human review #1)
+fix: corrige src/repository/NotificationsRepository.test.ts (QA human review #2)
 
-Criação de testes unitários para o repositório de notificações.
+Testes unitários para o repositório de notificações.
