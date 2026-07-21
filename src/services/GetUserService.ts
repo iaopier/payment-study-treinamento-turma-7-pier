@@ -1,1 +1,1 @@
-import { UserRepository } from '../repositories/UserRepository'; export class GetUserService { constructor(private userRepository: UserRepository) {} async execute(id: string) { return this.userRepository.findById(id); } }
+import { WalletRepository } from '../repository/WalletRepository'; export class GetUserService { private walletRepository: WalletRepository; constructor() { this.walletRepository = new WalletRepository(); } async execute(userId: string) { const unreadCount = await this.walletRepository.getUnreadCount(userId); return { userId, unreadCount }; } }
