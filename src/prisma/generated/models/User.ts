@@ -1,1 +1,3 @@
-export interface User { id: string; email: string; passwordHash: string; createdAt: Date; }
+fix: corrige src/prisma/generated/models/User.ts (QA human review #1)
+
+Definição do modelo de usuário conforme schema.prisma.
