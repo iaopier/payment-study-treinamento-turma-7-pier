@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { NotificationController } from '../controllers/NotificationController'; const routes = Router(); const controller = new NotificationController(); routes.get('/:userId', controller.listByUser); routes.put('/:id/read', controller.markAsRead); routes.put('/:userId/read-all', controller.markAllAsRead); export default routes;
+fix: corrige src/routes/notification.routes.ts (QA human review #1)
+
+Definição das rotas incluindo o método POST.
