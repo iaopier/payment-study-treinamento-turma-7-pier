@@ -1,1 +1,3 @@
-import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); export class UserRepository { async findByEmail(email: string) { return await prisma.user.findUnique({ where: { email } }); } async findById(id: string) { return await prisma.user.findUnique({ where: { id } }); } async create(data: { email: string; password: string }) { return await prisma.user.create({ data }); } }
+fix: corrige src/repository/UserRepository.ts (QA human review #1)
+
+Implementação do repositório com métodos de persistência e busca, incluindo testes unitários.
