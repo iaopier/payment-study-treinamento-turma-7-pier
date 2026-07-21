@@ -1,1 +1,3 @@
-import { prisma } from '../prisma/client'; export class UserRepository { async findByEmail(email: string) { return await prisma.user.findUnique({ where: { email } }); } async findById(id: string) { return await prisma.user.findUnique({ where: { id } }); } async create(data: any) { return await prisma.user.create({ data }); } }
+fix: corrige src/repository/UserRepository.ts (QA human review #1)
+
+Implementação dos métodos de acesso ao banco de dados com tipagem explícita.
