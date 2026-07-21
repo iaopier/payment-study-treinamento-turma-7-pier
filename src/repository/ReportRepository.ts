@@ -1,3 +1,3 @@
-fix: corrige src/repository/ReportRepository.ts (QA human review #1)
+fix: corrige src/repository/ReportRepository.ts (QA human review #2)
 
-Implementação do repositório com tipagem estrita e interface para o relatório.
+Implementada lógica de agregação e persistência utilizando instância compartilhada do Prisma.
