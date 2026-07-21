@@ -1,3 +1,3 @@
-fix: corrige tests/Notification.test.ts (QA human review #1)
+fix: corrige tests/Notification.test.ts (QA human review #2)
 
-Testes unitários para o repositório e serviço de notificações.
+Testes unitários completos cobrindo NotificationRepository e NotificationService.
