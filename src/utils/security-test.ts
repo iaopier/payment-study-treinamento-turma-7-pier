@@ -1,1 +1,1 @@
-
+export const validateConfigIntegrity = (config: { saveInterval: number }): boolean => { return typeof config.saveInterval === 'number' && config.saveInterval > 0; }; export const getSecurityHeader = (): string => { return 'X-Config-Verified'; };
