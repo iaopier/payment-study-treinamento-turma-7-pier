@@ -1,3 +1,3 @@
-fix: corrige src/services/AuthService.ts (QA human review #1)
+fix: corrige src/services/AuthService.ts (QA human review #2)
 
-Implementação da lógica de registro e login com bcrypt.
+Implementado AuthService com bcrypt para hash e verificação de senhas.
