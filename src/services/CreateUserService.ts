@@ -1,1 +1,3 @@
-import { hash } from 'bcrypt'; import { UserRepository } from '../repository/UserRepository'; export class CreateUserService { async execute({ email, password }: { email: string; password: string }) { const repo = new UserRepository(); const existing = await repo.findByEmail(email); if (existing) throw new Error('User already exists'); const passwordHash = await hash(password, 10); return await repo.create({ email, password: passwordHash }); } }
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
+
+Implementação da lógica de criação de usuário com hash de senha via bcrypt e validação de existência via repositório.
