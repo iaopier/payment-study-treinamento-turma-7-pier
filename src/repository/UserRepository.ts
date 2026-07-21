@@ -1,1 +1,3 @@
-import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); export class UserRepository { async create(data: any) { return await prisma.user.create({ data: { email: data.email, password: data.password, name: data.name } }); } }
+fix: corrige src/repository/UserRepository.ts (QA human review #1)
+
+Refatorado para isolamento de persistência.
