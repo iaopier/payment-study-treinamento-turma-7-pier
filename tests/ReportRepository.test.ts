@@ -1,3 +1,3 @@
-fix: corrige tests/ReportRepository.test.ts (QA human review #1)
+fix: corrige tests/ReportRepository.test.ts (QA human review #2)
 
-Criação de testes para o ReportRepository.
+Testes para a lógica de agregação do repositório.
