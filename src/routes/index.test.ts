@@ -1,3 +1,3 @@
-fix: corrige src/routes/index.test.ts (QA human review #2)
+fix: corrige src/routes/index.test.ts (QA human review #1)
 
-Teste unitário para validar o registro de rotas no index.
+Testes para o arquivo de rotas principal.
