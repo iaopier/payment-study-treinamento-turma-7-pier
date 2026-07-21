@@ -1,3 +1,1 @@
-fix: corrige src/routes/index.ts (QA human review #2)
-
-Registro das rotas de usuário no router principal.
+import { Router } from 'express'; import userRoutes from './user.routes'; const routes = Router(); routes.use('/users', userRoutes); export default routes;
