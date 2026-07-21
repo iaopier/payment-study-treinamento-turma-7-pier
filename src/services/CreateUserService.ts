@@ -1,15 +1,3 @@
-import { PrismaClient } from '@prisma/client';
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
 
-const prisma = new PrismaClient();
-
-export class CreateUserService {
-  async execute(data: { name: string; email: string }) {
-    return await prisma.$transaction(async (tx) => {
-      const user = await tx.user.create({ data });
-      await tx.wallet.create({
-        data: { userId: user.id, balance: 0 },
-      });
-      return user;
-    });
-  }
-}
+Refatoração para garantir que a criação de usuário e carteira ocorra de forma transacional, com injeção de dependência.
