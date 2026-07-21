@@ -1,3 +1,1 @@
-fix: corrige src/controllers/UserController.ts (QA human review #1)
-
-Implementação do controller com validação Zod e testes unitários associados.
+import { Request, Response } from 'express'; import { CreateUserService } from '../services/CreateUserService'; import { z } from 'zod'; const CreateUserSchema = z.object({ email: z.string().email(), password: z.string().min(8) }); export class UserController { async handle(req: Request, res: Response) { const data = CreateUserSchema.parse(req.body); const service = new CreateUserService(); const user = await service.execute(data); return res.status(201).json(user); } }
