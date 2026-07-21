@@ -1,3 +1,3 @@
-fix: corrige src/prisma/schema.prisma (QA human review #1)
+fix: corrige src/prisma/schema.prisma (QA human review #2)
 
-Adicionada a tabela UserActivityReport com campos de conta, período e dados consolidados.
+Adicionada a tabela UserActivityReport para persistência dos dados consolidados.
