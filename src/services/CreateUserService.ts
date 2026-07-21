@@ -1,3 +1,3 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #2)
+fix: corrige src/services/CreateUserService.ts (QA human review #1)
 
-Serviço de criação de usuário com tipagem estrita e hash de senha.
+Implementação do serviço de criação de usuário com hash de senha.
