@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateNotificationService.ts (QA human review #2)
-
-Implementação do serviço com injeção de dependência do PrismaClient.
+import { z } from 'zod'; import { NotificationsRepository } from '../repository/NotificationsRepository'; const schema = z.object({ userId: z.string().uuid(), type: z.string().min(1), message: z.string().min(1) }); export class CreateNotificationService { constructor(private repository: NotificationsRepository) {} async execute(data: unknown) { const validated = schema.parse(data); return await this.repository.create(validated); } }
