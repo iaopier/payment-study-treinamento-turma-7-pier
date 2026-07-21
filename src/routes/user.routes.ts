@@ -1,1 +1,3 @@
-import { Router } from 'express'; import { authMiddleware } from '../middleware/auth'; const router = Router(); router.post('/register', (req, res) => res.status(201).json({ message: 'User registered' })); router.post('/login', (req, res) => res.status(200).json({ /* [REDACTED - secret removed by sanitizer] */ })); router.get('/profile', authMiddleware, (req, res) => res.status(200).json({ user: (req as any).user })); export default router;
+fix: corrige src/routes/user.routes.ts (QA human review #1)
+
+Implementação das rotas de usuário com endpoints de registro, login e perfil protegido, incluindo testes.
