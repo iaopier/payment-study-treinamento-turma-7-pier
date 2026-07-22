@@ -1,3 +1,1 @@
-fix: corrige src/repository/NotificationRepository.ts (QA human review #1)
-
-Implementação do repositório de notificações com métodos de busca, contagem e atualização.
+import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); export class NotificationRepository { async create(data: { userId: string; type: any; message: string }) { return await prisma.notification.create({ data }); } async findAllByUserId(userId: string, page: number, limit: number, isRead?: boolean) { return await prisma.notification.findMany({ where: { userId, isRead: isRead !== undefined ? isRead : undefined }, skip: (page - 1) * limit, take: limit, orderBy: { createdAt: 'desc' } }); } async markAsRead(id: string, userId: string) { return await prisma.notification.updateMany({ where: { id, userId }, data: { isRead: true } }); } async markAllAsRead(userId: string) { return await prisma.notification.updateMany({ where: { userId, isRead: false }, data: { isRead: true } }); } }
