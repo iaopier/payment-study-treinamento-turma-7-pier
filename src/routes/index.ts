@@ -1,3 +1,1 @@
-fix: corrige src/routes/index.ts (QA human review #1)
-
-Registro das rotas de autenticação e aplicação do middleware nas rotas protegidas.
+import { Router } from 'express'; import { NotificationsController } from '../controllers/NotificationsController'; const routes = Router(); const controller = new NotificationsController(); routes.get('/notifications/:userId', controller.list); routes.post('/notifications/mark-as-read/:id', controller.markRead); routes.put('/notifications/bulk-mark-as-read', controller.markAllRead); export { routes };
