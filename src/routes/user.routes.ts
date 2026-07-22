@@ -1,3 +1,1 @@
-fix: corrige src/routes/user.routes.ts (QA human review #1)
-
-Implementação das rotas de usuário com proteção de middleware.
+import { FastifyInstance } from 'fastify'; import { UserController } from '../controllers/UserController'; export async function userRoutes(fastify: FastifyInstance) { const controller = new UserController(); fastify.get('/users/:id/notifications', controller.listNotifications); fastify.post('/users/:id/mark-as-read', controller.markAsRead); fastify.post('/users/:id/mark-all-as-read', controller.markAllAsRead); }
