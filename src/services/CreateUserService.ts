@@ -1,3 +1,1 @@
-fix: corrige src/services/CreateUserService.ts (QA human review #1)
-
-Adicionada lógica para emitir notificação ao criar usuário.
+import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); export class CreateUserService { async validateUserExists(userId: string) { const user = await prisma.user.findUnique({ where: { id: userId } }); if (!user) throw new Error('User not found'); return user; } }
