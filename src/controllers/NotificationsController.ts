@@ -1,1 +1,3 @@
-import { Request, Response } from 'express'; import { NotificationRepository } from '../repository/NotificationRepository'; const repo = new NotificationRepository(); export class NotificationsController { async list(req: Request, res: Response) { const { userId } = req.params; const { page, limit, isRead } = req.query; const notifications = await repo.findAllByUserId(userId, Number(page) || 1, Number(limit) || 20, isRead === 'true'); return res.json(notifications); } async markRead(req: Request, res: Response) { const { id } = req.params; const { userId } = req.body; await repo.markAsReadById(id, userId); return res.status(204).send(); } async markAllRead(req: Request, res: Response) { const { userId } = req.body; await repo.markAllAsRead(userId); return res.status(204).send(); } }
+fix: corrige src/controllers/NotificationsController.ts (QA human review #1)
+
+Implementação dos endpoints de notificações.
