@@ -1,3 +1,1 @@
-fix: corrige src/prisma/schema.prisma (QA human review #2)
-
-Adicionada tabela Notification com relacionamento com User e campos necessários.
+model User { id String @id @default(uuid()) email String @unique notifications Notification[] } enum NotificationType { PAYMENT_PROCESSED SALDO_UPDATED COBRANCA_PENDENTE } model Notification { id String @id @default(uuid()) userId String user User @relation(fields: [userId], references: [id]) type NotificationType message String isRead Boolean @default(false) createdAt DateTime @default(now()) }
